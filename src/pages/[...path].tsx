@@ -4,7 +4,12 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 import siteConfig from '../../config/site.config'
 import Navbar from '../components/Navbar'
-import FileListing from '../components/FileListing'
+import dynamic from 'next/dynamic'
+
+const FileListing = dynamic(
+  () => import('../components/FileListing'),
+  { ssr: false }
+)
 import Footer from '../components/Footer'
 import Breadcrumb from '../components/Breadcrumb'
 import SwitchLayout from '../components/SwitchLayout'
